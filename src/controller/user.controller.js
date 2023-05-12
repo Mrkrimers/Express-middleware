@@ -2,7 +2,7 @@ const express = require(`express`);
 
 const router = express.Router();
 
-const { getAllUser, getUserById, createUser, updateUser } = require(`../service/user.service`);
+const { getAllUser, getUserById, createUser, updateUser, deleteById } = require(`../service/user.service`);
 
 router.get(`/`, (request, response) => {
     try {
@@ -43,6 +43,17 @@ router.put(`/:id`, (request, response) => {
         response.status(200).send(data);
     } catch (error) {
         response.status(404).send(error.message);
+    }
+})
+
+router.delete(`/:id`, (request, response) => {
+    try {
+        const { id } = request.params;
+        const data = deleteById(id);
+
+        response.status(200).send(data);
+    } catch (error) {
+        response.status(404).send(error.message)
     }
 })
 
