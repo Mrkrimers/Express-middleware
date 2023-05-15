@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 
 app.use(`/user`, routeUser)
 
-
 app.use((error, req, res, next) => {
     res.send(error.message);
 })
