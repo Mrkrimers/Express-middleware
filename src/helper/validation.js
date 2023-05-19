@@ -16,6 +16,11 @@ function isValidUserData(req, res, next) {
     if (!email) { throw new Error(`your value EMAIL is emptu`) }
     if (!pwd) { throw new Error(`your value PWD is emptu`) }
 
+    if (!isNaN(name)) { throw new Error(`your Name have number`) }
+    if (!isNaN(surname)) { throw new Error(`your surname have number`) }
+    if (!/^[\w\-]+@[a-z]{1,9}.[a-z]+$/gm.test(email)) { throw new Error(`your EMAIL is not valid`) }
+    if (pwd.length < 8) { throw new Error(`your PWD is less 8 sumbols`) }
+
     next();
 }
 

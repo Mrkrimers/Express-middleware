@@ -34,7 +34,7 @@ class Controller {
             }
         })
 
-        this.route.post(`/`, isValidUserData, (request, response) => {
+        this.route.post(`/`, isValidUserData, isValidUserData, (request, response) => {
             try {
                 const { name, surname, email, pwd } = request.body;
                 const data = service.postUserCreate(name, surname, email, pwd);
