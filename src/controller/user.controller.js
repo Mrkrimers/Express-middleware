@@ -58,7 +58,7 @@ class Controller {
             }
         })
 
-        this.route.patch(`/:id`, isValidUserId, (request, response) => {
+        this.route.patch(`/:id`, isValidUserId, isValidUserData, (request, response) => {
             try {
                 const { id } = request.params;
                 const clientObj = request.body;
